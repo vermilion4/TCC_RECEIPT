@@ -1,0 +1,62 @@
+<%- include('./partials/header.ejs') %>
+
+
+    <div class="course_form">
+        <form action="/courseReg" method="post">
+        <h1>Course Registration</h1>
+            <input type="text" placeholder="Enter Student ID" name="student_id" required><br>
+            <input type="submit" value="Find Student">
+        </form>
+
+        <table class="student_table">
+            <tr>
+                <th>Student ID &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</th>
+                <th>Name &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</th>
+                <th>Phone Number &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</th>
+                <th>Email</th>
+            </tr>
+            <% if(typeof (result)!== 'undefined'){%>
+             <% result.forEach(function(stud){ %>
+            <tr>
+                <td><%= stud.student_id %></td>
+                <td><%= stud.fname +' '+ stud.lname %></td>
+                <td><%= stud.number %></td>
+                <td><%= stud.email %></td>
+            </tr>
+            <% }) %>
+            <% } %>
+        </table>
+
+        <form action="/courseReg2" method="post">
+        <table class="course_table">
+            <tr>
+                <th>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</th>
+                <th>Course ID &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</th>
+                <th>Course Name &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</th>
+                <th>Course Price &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</th>
+            </tr>
+
+            <% rows.forEach(function (row){ %>
+                <tr>
+                    <td><input type="checkbox" name="check" value="<%=row.course_id%>"></td>
+                    <td><%= row.course_id %></td>
+                    <td><%= row.course_name %></td>
+                    <td><%= row.course_price %></td>
+                </tr>
+            <%})%>
+
+        </table>
+
+            <input type="button" onclick='selectAll()' value="Select All" style="margin-top: 3%;
+                                                                                 margin-left: 14%;
+                                                                                 opacity: 0.8;
+                                                                                 border: none"/>
+            <input type="button" onclick='UnSelectAll()' value="Unselect All" style="margin-left: 0;
+                                                                                     opacity: 0.8;
+                                                                                     border: none;"/><br>
+
+            <input type="submit" value="Click to Submit" style="margin-left: 14%">
+        </form>
+    </div>
+
+<%- include('./partials/footer.ejs') %>

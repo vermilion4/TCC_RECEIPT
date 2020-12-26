@@ -1,0 +1,19 @@
+<%- include('./partials/header.ejs') %>
+
+<div class="student_form">
+    <h1 style="margin-left: 3%; margin-bottom: 5%; margin-top: 3%">Course Setup</h1>
+    <form action="/setup" method="post">
+        <p>Course Name</p>
+        <input type="text" name="course_name" required/>
+
+        <p>Course Price</p>
+        <input type="text" name="course_price" required/>
+
+        <p>Duration</p>
+        <input type="text" name="duration" required/><br><br>
+
+        <input type="submit" value="Click to Register">
+    </form>
+</div>
+
+<%- include('./partials/footer.ejs') %>

@@ -1,0 +1,62 @@
+<html>
+<head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <script type="text/javascript">
+        function selectAll(){
+            let items=document.getElementsByName('check');
+            items.forEach(function(item){
+                if(item.type=='checkbox')
+                    item.checked=true;
+            })
+        }
+
+        function UnSelectAll(){
+            let items=document.getElementsByName('check');
+            for(let i=0; i<items.length; i++){
+                if(items[i].type=='checkbox')
+                    items[i].checked=false;
+            }
+        }
+    </script>
+</head>
+<body>
+
+<div class="container">
+
+
+    <div class="header">
+
+
+        <div class="logo_1"></div>
+        <div class="nav">
+            <div class="dropdown">
+                <a href="">Registration</a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                <div class="dropdown-content">
+                    <a href="/studentReg">Student Registration</a>
+                    <a href="/courseReg">Course Registration</a>
+                </div>
+            </div>
+
+            <div class="dropdown">
+                <a href="#">Payment</a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                <div class="dropdown-content">
+                    <a href="/payment">Make New Payment</a>
+                    <a href="/existPay">Existing Payment</a>
+                </div>
+            </div>
+
+            <a href="/setup">Course Setup</a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+            <a href="/RegisteredStud">Registered Students</a>
+
+        </div>
+
+    </div>
+
+    <div class="banner">
+
+        <div class="logo_2"></div>
+
+
+    </div>
+    <div class="body">
